@@ -22,7 +22,7 @@ export function generatePDF(candidate) {
     // Title
     doc.setFontSize(18);
     doc.text(
-        "AI Resume Screening Report",
+        "Resume Screening Report",
         20,
         20
     );
@@ -40,7 +40,7 @@ export function generatePDF(candidate) {
 
     // Scores
     doc.text(
-        `Final ATS Score: ${candidate.match_score}%`,
+        `ATS Score: ${candidate.match_score}%`,
         20,
         55
     );
@@ -51,25 +51,23 @@ export function generatePDF(candidate) {
         65
     );
 
-    doc.text(
-        `AI Semantic Score: ${candidate.semantic_score}%`,
-        20,
-        75
-    );
 
-
-    // Skills
+    // Candidate Skills
     doc.text(
         "Candidate Skills:",
         20,
-        95
+        90
     );
 
     doc.text(
-        candidate.candidate_skills.join(", "),
+        candidate.candidate_skills.length > 0
+            ? candidate.candidate_skills.join(", ")
+            : "No skills found",
         25,
-        105,
-        { maxWidth: 160 }
+        100,
+        {
+            maxWidth: 160
+        }
     );
 
 
@@ -86,22 +84,26 @@ export function generatePDF(candidate) {
             : "None",
         25,
         135,
-        { maxWidth: 160 }
+        {
+            maxWidth: 160
+        }
     );
 
 
-    // AI Summary
+    // Candidate Summary
     doc.text(
-        "AI Summary:",
+        "Candidate Summary:",
         20,
-        155
+        160
     );
 
     doc.text(
         candidate.summary,
         25,
-        165,
-        { maxWidth: 160 }
+        170,
+        {
+            maxWidth: 160
+        }
     );
 
 
@@ -116,7 +118,7 @@ export function generatePDF(candidate) {
     );
 
 
-    // Download file
+    // Download PDF
     doc.save(
         `${candidate.filename}_Report.pdf`
     );

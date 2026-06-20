@@ -48,16 +48,11 @@ function CandidateModal({ candidate, onClose }) {
                     </div>
 
 
-                    <div className="score-card">
-                        <h4>🧠 AI Match</h4>
-                        <p>
-                            {candidate.semantic_score}%
-                        </p>
-                    </div>
+                    
 
 
                     <div className="score-card final-score">
-                        <h4>⭐ Final ATS</h4>
+                        <h4>⭐  ATS Score</h4>
                         <p>
                             {candidate.match_score}%
                         </p>
