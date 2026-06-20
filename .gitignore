@@ -1,7 +1,49 @@
-node_modules/
-venv/
-.env
-uploads/
+# ==============================
+# Python Backend
+# ==============================
+
+backend/venv/
 __pycache__/
-dist/
+*.pyc
+.pytest_cache/
+
+# Environment Variables
+.env
+
+
+# ==============================
+# React Frontend
+# ==============================
+
+frontend/node_modules/
+frontend/dist/
 build/
+
+
+# ==============================
+# Uploaded Files (if any)
+# ==============================
+
+uploads/
+
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+
+
+# ==============================
+# Operating System Files
+# ==============================
+
+.DS_Store
+Thumbs.db
+
+
+# ==============================
+# Editor Settings
+# ==============================
+
+.vscode/

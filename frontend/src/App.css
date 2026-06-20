@@ -1,0 +1,543 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: #f4f7fc;
+}
+
+.app-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 25px;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+    color: white;
+    padding: 18px 30px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.nav-text {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+    font-size: 2.3rem;
+}
+
+h2 {
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-top: 8px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: scale(1.05);
+}
+
+/* Form Elements */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #374151;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+input[type="file"] {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+/* Top Candidate Section */
+.top-candidate {
+    border-left: 6px solid #f59e0b;
+}
+
+.candidate-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.score-badge {
+    background: #10b981;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+
+/* Skills Display */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+/* Dashboard Summary Cards */
+.summary-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.summary-card h3 {
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+.summary-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+
+/* Candidate Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+th {
+    background: #2563eb;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:hover {
+    background: #f1f5f9;
+}
+
+
+/* Score Progress Bar */
+.candidate-score {
+    min-width: 160px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #10b981,
+        #059669
+    );
+    border-radius: 20px;
+    transition: width 1s ease-in-out;
+}
+
+.score-text {
+    font-weight: bold;
+    color: #059669;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .summary-container {
+        flex-direction: column;
+    }
+
+    .candidate-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+/* =========================
+   Candidate Details Modal
+========================= */
+
+/* Dark background overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+
+/* Main white popup card */
+.modal {
+    background: white;
+
+    width: 700px;
+    max-width: 90%;
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    padding: 25px;
+    border-radius: 16px;
+
+    position: relative;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+
+    animation: popUp 0.3s ease;
+}
+
+
+/* Popup animation */
+@keyframes popUp {
+
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Close button */
+.close-button {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ef4444;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+
+/* Candidate score circle */
+.modal-score {
+    width: 100px;
+    height: 100px;
+
+    margin: 20px auto;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+
+/* Score cards section */
+.score-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    margin: 20px 0;
+
+    flex-wrap: wrap;
+}
+
+
+.score-card {
+    width: 150px;
+
+    background: #f3f4f6;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.score-card h4 {
+    margin-bottom: 10px;
+    color: #374151;
+}
+
+.score-card p {
+    margin: 0;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    color: #2563eb;
+}
+
+
+/* Highlight final ATS score */
+.final-score {
+    background: #dbeafe;
+    border: 2px solid #2563eb;
+}
+
+
+/* AI summary section */
+.summary-box {
+    background: #eff6ff;
+
+    border-left: 5px solid #2563eb;
+
+    padding: 15px;
+
+    margin: 15px 0;
+
+    border-radius: 10px;
+
+    color: #1e3a8a;
+
+    line-height: 1.6;
+}
+
+
+/* Hiring recommendation styles */
+.recommend {
+    text-align: center;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    font-size: 1.1rem;
+
+    margin-top: 15px;
+}
+
+
+.excellent {
+    background: #dcfce7;
+    color: #166534;
+}
+
+
+.average {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+
+.poor {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* Download PDF button */
+.download-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* Responsive modal */
+@media (max-width: 600px) {
+
+    .modal {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .score-card {
+        width: 100%;
+    }
+
+    .close-button {
+        width: 32px;
+        height: 32px;
+    }
+}
