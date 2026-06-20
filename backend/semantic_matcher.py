@@ -32,7 +32,7 @@ def calculate_semantic_score(
         [job_embedding]
     )[0][0]
 
-    # Convert to percentage
-    score =float( similarity * 100)
+    # Convert similarity into percentage
+    score = float(similarity * 100)
 
     return round(score, 2)
