@@ -7,13 +7,12 @@ from scorer import (
     calculate_match_score,
     rank_candidates
 )
-from semantic_matcher import calculate_semantic_score
 
 
 app = FastAPI()
 
 
-# Enable CORS so React frontend can communicate with FastAPI
+# Enable CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -23,26 +22,27 @@ app.add_middleware(
 )
 
 
-# Home route to check API status
+# Home route
 @app.get("/")
 def home():
     return {
-        "message": "Hybrid AI Resume Screening API Running 🚀"
+        "message": "Resume Screening API Running 🚀"
     }
 
 
-# Function to generate AI-style summary
+# Generate candidate summary
 def generate_summary(score):
+
     if score >= 80:
         return (
-            "Excellent candidate with a strong overall match. "
+            "Excellent candidate with a strong skill match. "
             "Highly recommended for the interview round."
         )
 
     elif score >= 50:
         return (
-            "Good candidate with relevant skills but has some "
-            "areas that need improvement."
+            "Good candidate with relevant skills but has "
+            "some areas that need improvement."
         )
 
     else:
@@ -52,7 +52,7 @@ def generate_summary(score):
         )
 
 
-# Analyze a single resume
+# Analyze single resume
 @app.post("/upload")
 async def upload_resume(
     file: UploadFile = File(...),
@@ -66,25 +66,13 @@ async def upload_resume(
     candidate_skills = extract_skills(resume_text)
     required_skills = extract_skills(job_description)
 
-    # Calculate individual scores
-    skill_score = calculate_match_score(
+    # Calculate ATS score
+    match_score = calculate_match_score(
         candidate_skills,
         required_skills
     )
 
-    semantic_score = calculate_semantic_score(
-        resume_text,
-        job_description
-    )
-
-    # Hybrid final score
-    final_score = round(
-        (0.7 * skill_score) +
-        (0.3 * semantic_score),
-        2
-    )
-
-    # Missing skills
+    # Find missing skills
     missing_skills = [
         skill for skill in required_skills
         if skill not in candidate_skills
@@ -96,11 +84,10 @@ async def upload_resume(
         "required_skills": required_skills,
         "missing_skills": missing_skills,
 
-        "skill_score": skill_score,
-        "semantic_score": semantic_score,
-        "match_score": final_score,
+        "skill_score": match_score,
+        "match_score": match_score,
 
-        "summary": generate_summary(final_score)
+        "summary": generate_summary(match_score)
     }
 
 
@@ -113,7 +100,7 @@ async def rank_resumes(
 
     candidates = []
 
-    # Extract job skills once
+    # Extract required skills once
     required_skills = extract_skills(
         job_description
     )
@@ -130,23 +117,10 @@ async def rank_resumes(
             resume_text
         )
 
-        # Skill-based score
-        skill_score = calculate_match_score(
+        # Calculate ATS score
+        match_score = calculate_match_score(
             candidate_skills,
             required_skills
-        )
-
-        # AI semantic score
-        semantic_score = calculate_semantic_score(
-            resume_text,
-            job_description
-        )
-
-        # Final hybrid score
-        final_score = round(
-            (0.7 * skill_score) +
-            (0.3 * semantic_score),
-            2
         )
 
         # Find missing skills
@@ -155,26 +129,34 @@ async def rank_resumes(
             if skill not in candidate_skills
         ]
 
-        # Store candidate details
+        # Store candidate information
         candidates.append({
+
             "filename": file.filename,
+
             "candidate_skills": candidate_skills,
+
             "missing_skills": missing_skills,
 
-            "skill_score": skill_score,
-            "semantic_score": semantic_score,
-            "match_score": final_score,
+            "skill_score": match_score,
 
-            "summary": generate_summary(final_score)
+            "match_score": match_score,
+
+            "summary": generate_summary(
+                match_score
+            )
         })
 
-    # Rank candidates from highest score to lowest
+    # Rank candidates
     ranked_candidates = rank_candidates(
         candidates
     )
 
     return {
-        "total_candidates": len(ranked_candidates),
+
+        "total_candidates": len(
+            ranked_candidates
+        ),
 
         "top_candidate": (
             ranked_candidates[0]
