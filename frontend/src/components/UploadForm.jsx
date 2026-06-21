@@ -43,7 +43,7 @@ function UploadForm({ setResult, setLoading }) {
 
             // Send request to FastAPI
             const response = await axios.post(
-                "http://127.0.0.1:8000/rank",
+                "https://ai-resume-screener-backend-ph5x.onrender.com",
                 formData,
                 {
                     headers: {
