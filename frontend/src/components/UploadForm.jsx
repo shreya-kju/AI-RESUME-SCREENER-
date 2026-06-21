@@ -43,7 +43,7 @@ function UploadForm({ setResult, setLoading }) {
 
             // Send request to FastAPI
             const response = await axios.post(
-                "https://ai-resume-screener-backend-ph5x.onrender.com",
+                "https://ai-resume-screener-backend-ph5x.onrender.com/rank",
                 formData,
                 {
                     headers: {
