@@ -101,7 +101,7 @@ function UploadForm({ setResult, setLoading }) {
 
 
             <button type="submit">
-                🚀 Analyze Candidates
+                 Analyze Candidates
             </button>
 
         </form>

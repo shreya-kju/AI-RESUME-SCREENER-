@@ -27,7 +27,7 @@ function App() {
             <header className="navbar">
 
                 <div className="logo">
-                    🤖 AI Resume Screener
+                     AI RESUME SCREENER
                 </div>
 
                 <div className="nav-text">

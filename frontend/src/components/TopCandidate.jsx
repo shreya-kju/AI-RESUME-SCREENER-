@@ -36,7 +36,7 @@ function TopCandidate({ candidate }) {
             </div>
 
 
-            <h4>🛠️ Matched Skills</h4>
+            <h4> Matched Skills</h4>
 
 
             <div className="skills-container">

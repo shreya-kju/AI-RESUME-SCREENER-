@@ -63,7 +63,7 @@ function CandidateModal({ candidate, onClose }) {
 
                 {/* Candidate Skills */}
                 <h3>
-                    🛠 Candidate Skills
+                     Candidate Skills
                 </h3>
 
                 <p>
@@ -75,7 +75,7 @@ function CandidateModal({ candidate, onClose }) {
 
                 {/* Missing Skills */}
                 <h3>
-                    ⚠ Missing Skills
+                     Missing Skills
                 </h3>
 
                 <p>
@@ -88,7 +88,7 @@ function CandidateModal({ candidate, onClose }) {
 
                 {/* AI Summary */}
                 <h3>
-                    🤖 AI Candidate Summary
+                     AI Candidate Summary
                 </h3>
 
                 <div className="summary-box">
@@ -98,7 +98,7 @@ function CandidateModal({ candidate, onClose }) {
 
                 {/* Recommendation */}
                 <h3>
-                    🧠 Hiring Recommendation
+                     Hiring Recommendation
                 </h3>
 
                 <p
