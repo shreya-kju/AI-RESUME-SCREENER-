@@ -2,13 +2,26 @@
 
 ### Version 1.0
 
-An AI-powered Applicant Tracking System (ATS) that intelligently analyzes resumes, compares them with job requirements, calculates compatibility scores, and ranks candidates using Artificial Intelligence and Natural Language Processing.
+An AI-powered Applicant Tracking System (ATS) that intelligently analyzes resumes, compares them with job requirements, calculates compatibility scores, and ranks candidates using automated resume processing and skill-based evaluation.
 
 ---
 
 ## 📌 Project Objective
 
-The objective of this project is to automate the traditional resume screening process using AI. The system reduces manual effort for recruiters by analyzing candidate resumes, identifying relevant skills, comparing them with job descriptions, and providing an intelligent ranking based on suitability.
+The objective of this project is to automate the traditional resume screening process. The system reduces manual effort for recruiters by analyzing candidate resumes, identifying relevant skills, comparing them with job descriptions, and providing intelligent ranking based on candidate suitability.
+
+---
+
+## 🌐 Live Demo & Links
+
+- 🚀 **Live Application:**  
+  https://ai-resume-screener-rosy.vercel.app/
+
+- ⚙️ **Backend API (Render):**  
+  https://ai-resume-screener-backend-ph5x.onrender.com
+
+- 📂 **GitHub Repository:**  
+  https://github.com/shreya-kju/AI-RESUME-SCREENER-
 
 ---
 
@@ -16,30 +29,30 @@ The objective of this project is to automate the traditional resume screening pr
 
 ### 📄 Resume Processing
 
-* Upload and analyze multiple resumes simultaneously
-* Extract text from PDF resumes
-* Identify technical skills automatically
+- Upload and analyze multiple PDF resumes simultaneously
+- Extract text from candidate resumes
+- Identify technical skills automatically
+- Compare candidate skills with job requirements
 
-### 🧠 AI-Based Candidate Analysis
+### 📊 ATS Candidate Analysis
 
-* Semantic resume-job description matching
-* ATS score calculation
-* Skill match analysis
-* Missing skills identification
-* Candidate ranking based on suitability
+- Calculate ATS compatibility scores
+- Identify missing skills
+- Rank candidates based on suitability
+- Highlight the best matching candidate
 
-### 📊 Recruiter Dashboard
+### 📋 Recruiter Dashboard
 
-* Top candidate highlighting
-* Candidate ranking table
-* Detailed candidate profile popup
-* AI-generated candidate summary
-* Hiring recommendation system
-* Score analytics visualization
+- Clean and responsive user interface
+- Candidate ranking table
+- Detailed candidate profile modal
+- Candidate summary generation
+- Hiring recommendation system
+- Score analytics visualization
 
 ### 📑 Report Generation
 
-* Download detailed candidate evaluation reports as PDF
+- Download detailed candidate evaluation reports as PDF
 
 ---
 
@@ -47,28 +60,30 @@ The objective of this project is to automate the traditional resume screening pr
 
 ### Frontend
 
-* React.js
-* Vite
-* JavaScript
-* CSS
+- React.js
+- Vite
+- JavaScript
+- CSS
 
 ### Backend
 
-* Python
-* FastAPI
-* Uvicorn
+- Python
+- FastAPI
+- Uvicorn
 
-### Artificial Intelligence & NLP
+### Resume Processing
 
-* Sentence Transformers
-* Hugging Face Transformers
-* Natural Language Processing (NLP)
+- PyPDF
+- Skill extraction algorithm
+- ATS scoring algorithm
 
-### Development Tools
+### Development & Deployment Tools
 
-* Git
-* GitHub
-* jsPDF
+- Git
+- GitHub
+- Vercel (Frontend Deployment)
+- Render (Backend Deployment)
+- jsPDF
 
 ---
 
@@ -77,17 +92,18 @@ The objective of this project is to automate the traditional resume screening pr
 ```
 AI-Resume-Screener
 │
-├── backend
+├── backend/
 │   ├── app.py
 │   ├── resume_parser.py
 │   ├── scorer.py
-│   └── requirements.txt
+│   ├── requirements.txt
 │
-├── frontend
-│   ├── src
-│   │   ├── components
+├── frontend/
+│   ├── src/
+│   │   ├── components/
 │   │   ├── App.jsx
-│   │   └── App.css
+│   │   ├── App.css
+│   │   └── generateReport.js
 │   │
 │   ├── package.json
 │   └── vite.config.js
@@ -106,11 +122,9 @@ AI-Resume-Screener
 git clone https://github.com/shreya-kju/AI-RESUME-SCREENER-.git
 ```
 
----
-
 ### 2. Backend Setup
 
-Navigate to the backend folder:
+Navigate to the backend directory:
 
 ```bash
 cd backend
@@ -122,27 +136,25 @@ Create a virtual environment:
 python -m venv venv
 ```
 
-Activate the environment:
-
-**Windows**
+Activate the environment (Windows):
 
 ```bash
 venv\Scripts\activate
 ```
 
-Install required dependencies:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the FastAPI server:
+Start the FastAPI server:
 
 ```bash
 uvicorn app:app --reload
 ```
 
-The backend will run at:
+Backend runs at:
 
 ```
 http://localhost:8000
@@ -152,25 +164,25 @@ http://localhost:8000
 
 ### 3. Frontend Setup
 
-Navigate to the frontend folder:
+Navigate to the frontend directory:
 
 ```bash
 cd frontend
 ```
 
-Install dependencies:
+Install required packages:
 
 ```bash
 npm install
 ```
 
-Start the React application:
+Start the Vite development server:
 
 ```bash
 npm run dev
 ```
 
-The frontend will run at:
+Frontend runs at:
 
 ```
 http://localhost:5173
@@ -180,47 +192,39 @@ http://localhost:5173
 
 ## 📊 System Workflow
 
-1. Recruiter uploads one or multiple resume files.
+1. Recruiter uploads one or more resume PDFs.
 2. Recruiter enters the job description.
-3. The system extracts text and identifies candidate skills.
-4. AI compares resume content with job requirements.
-5. Skill matching and semantic similarity scores are calculated.
-6. A final ATS score is generated.
-7. Candidates are ranked from most suitable to least suitable.
+3. The system extracts text from each resume.
+4. Candidate skills are identified.
+5. Skills are compared with the required job skills.
+6. ATS compatibility scores are calculated.
+7. Candidates are ranked from highest to lowest score.
 8. Recruiters can view detailed analysis and download PDF reports.
 
 ---
 
-## 📸 Application Screenshots
 
-Screenshots of the application interface will be added here:
 
-* Home Page
-* Resume Upload Interface
-* Candidate Ranking Dashboard
-* Candidate Details Modal
-* PDF Evaluation Report
 
----
 
 ## 🔮 Future Enhancements
 
-The following improvements can be added in future versions:
-
 ### Version 2.0
 
-* User authentication and login system
-* Database integration using SQLite/PostgreSQL
-* Resume analysis history
-* Recruiter profile management
+- User authentication and login system
+- Database integration using PostgreSQL or MongoDB
+- Resume analysis history
+- Recruiter profile management
+- User dashboard with saved reports
 
 ### Version 3.0
 
-* AI-generated interview questions
-* Candidate strengths and weakness analysis
-* Resume improvement suggestions
-* Advanced analytics dashboard
-* Cloud deployment
+- Advanced AI-based semantic matching
+- AI-generated interview questions
+- Candidate strength and weakness analysis
+- Resume improvement suggestions
+- Advanced analytics dashboard
+- Cloud storage integration
 
 ---
 
@@ -228,12 +232,13 @@ The following improvements can be added in future versions:
 
 This project demonstrates concepts of:
 
-* Artificial Intelligence
-* Natural Language Processing
-* Full Stack Web Development
-* REST API Development
-* Database Integration (future scope)
-* Software Engineering Principles
+- Artificial Intelligence fundamentals
+- Resume data processing
+- Full Stack Web Development
+- REST API Development
+- API integration
+- Software Engineering principles
+- Cloud deployment using Vercel and Render
 
 ---
 
@@ -247,4 +252,4 @@ BCA Student | AI & Full Stack Development Enthusiast
 
 ## ⭐ Acknowledgement
 
-This project was developed as a learning and academic project to explore how Artificial Intelligence can improve modern recruitment and candidate evaluation systems.
+This project was developed as an academic and learning project to explore how technology can improve modern recruitment processes through intelligent resume analysis and automated candidate evaluation.
