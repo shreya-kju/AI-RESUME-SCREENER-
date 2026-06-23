@@ -203,19 +203,9 @@ http://localhost:5173
 
 ---
 
-## 📸 Application Screenshots
 
-Screenshots of the application interface will be added here.
 
-Planned screenshots:
 
-- Home Page
-- Resume Upload Interface
-- Candidate Ranking Dashboard
-- Candidate Details Modal
-- PDF Report
-
----
 
 ## 🔮 Future Enhancements
 
